@@ -15,14 +15,15 @@ import {
 const SubscribeScreen = ({ navigation }) => {
   // Add subscribe screen code here
   const [text, setText] = useState("");
+  const [isValid , setIsValid] = useState(false)
 
   const handleSubmit = () => {
     //validation
     if (text.length > 3 && validateEmail(text)) {
       Alert.alert("thank you for subscribing stay stuned!");
       setText(" ");
-    } else if (text.length <= 3 && validateEmail(text)) {
-      Alert.alert("email invalid");
+    } else if (text.length <= 3 && !validateEmail(text)) {
+      Alert.alert("email invalid or too short");
     }else{
       Alert.alert("email invalid");
     }
@@ -55,7 +56,7 @@ const SubscribeScreen = ({ navigation }) => {
 
       <TouchableOpacity
         onPress={() => handleSubmit()}
-        style={styles.subscribeBtn}
+        style={{...styles.subscribeBtn,backgroundColor:text.length > 3  ? "green":"rgb(31,31,31)"}}
       >
         <Text style={{ color: "#fff", fontSize: 18 }}>subscribe</Text>
       </TouchableOpacity>

@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   subscribeBtn: {
-    backgroundColor: "rgb(31,31,31)",
+    backgroundColor: "green",
     width: 300,
     height: 50,
     justifyContent: "center",
